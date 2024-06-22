@@ -1,24 +1,28 @@
 ﻿  Application.cpp
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(28,13): warning C4244: 'initializing': conversion from 'size_t' to 'float', possible loss of data
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(29,13): warning C4244: 'initializing': conversion from 'size_t' to 'float', possible loss of data
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(68,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(69,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(73,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(74,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(75,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(76,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(109,23): warning C4018: '<': signed/unsigned mismatch
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(116,23): warning C4018: '<': signed/unsigned mismatch
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(132,23): warning C4018: '<': signed/unsigned mismatch
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(133,27): warning C4018: '<': signed/unsigned mismatch
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(134,22): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(30,13): warning C4244: 'initializing': conversion from 'size_t' to 'float', possible loss of data
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(31,13): warning C4244: 'initializing': conversion from 'size_t' to 'float', possible loss of data
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(107,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(108,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(112,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(113,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(114,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(115,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(148,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(155,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(171,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(172,27): warning C4018: '<': signed/unsigned mismatch
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(173,22): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(148,23): warning C4018: '<': signed/unsigned mismatch
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(167,23): warning C4018: '<': signed/unsigned mismatch
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(181,23): warning C4018: '<': signed/unsigned mismatch
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(182,27): warning C4018: '<': signed/unsigned mismatch
-C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(199,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(187,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(206,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(220,23): warning C4018: '<': signed/unsigned mismatch
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(221,27): warning C4018: '<': signed/unsigned mismatch
+C:\dev\OpenGL\OpenGL\OpenGL\src\Application.cpp(238,23): warning C4018: '<': signed/unsigned mismatch
+Debug\glm.obj : warning LNK4042: object specified more than once; extras ignored
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+glew32s.lib(glew.obj) : warning LNK4099: PDB '' was not found with 'glew32s.lib(glew.obj)' or at ''; linking object as if no debug info
   OpenGL.vcxproj -> C:\dev\OpenGL\OpenGL\Debug\OpenGL.exe

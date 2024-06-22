@@ -8,6 +8,8 @@
 #include <cmath>
 #include "Renderer.h"
 #include <omp.h>
+#include <fstream>
+#include <iomanip>
 
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
@@ -44,6 +46,31 @@ struct Geometry {
     size_t numIndices = 0;
 };
 
+Geometry* myGeom;
+Geometry* testGeom;
+
+auto runGLFW() -> int;
+
+auto exportTerrain(Geometry* geom, std::string filename) -> void {
+    std::ofstream outfile(filename);
+    float* vertices = geom->vertices; // each "vertex" has 3 floats for coords, 3 floats for normal
+    int numVertices = geom->numVertices;
+    unsigned int* indices = geom->indices;
+    int numIndices = geom->numIndices;
+    outfile << std::setprecision(2) << std::fixed;
+    for (int i = 0; i < numVertices; i+=6) {
+        outfile << "v " << vertices[i] << " " << vertices[i + 1] << " " << vertices[i + 2] << "\n";
+        //outfile << "vn " << vertices[i + 3] << " " << vertices[i + 4] << " " << vertices[i + 5] << "\n";
+        
+    }
+    for (int i = 0; i < numIndices; i += 3) {
+        outfile << "f " << indices[i]+1 << " " << indices[i + 1]+1 << " " << indices[i + 2]+1 << "\n";
+    }
+
+    outfile.close();
+    std::cout << "Wrote terrain to " << filename << "\n";
+}
+
 auto processInput(GLFWwindow* window) -> void {
 
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
@@ -60,6 +87,18 @@ auto processInput(GLFWwindow* window) -> void {
         cameraPos += cameraSpeed * cameraUp;
     if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
         cameraPos -= cameraSpeed * cameraUp;
+    if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
+        std::cout << "Reloading terrain!" << std::endl;
+        glfwSetWindowShouldClose(window, true);
+        firstMouse = true;
+        glfwTerminate();
+        runGLFW();
+    }
+    if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
+        std::string filename = "terrain_" + std::to_string(meshWidth) + "_" + std::to_string(meshHeight) + ".obj";
+        exportTerrain(myGeom, filename);
+        std::cout << "Exporting terrain to " << filename << std::endl;
+    }
 }
 
 auto mouse_callback(GLFWwindow* window, double xpos, double ypos) -> void {
@@ -246,7 +285,7 @@ auto runGLFW() -> int {
     }
     {
         /* // 1x1x1 cube
-        float positions[48] = {
+        float* positions = new float[48] {
             -0.5f, -0.5f, -0.5f,0.0f,1.0f,0.0f,
             -0.5f, -0.5f, 0.5f,0.0f,1.0f,0.0f,
             -0.5f, 0.5f, -0.5f,1.0f,0.0f,0.0f,
@@ -255,13 +294,13 @@ auto runGLFW() -> int {
             0.5f,-0.5f,0.5f,-1.0f,0.0f,0.0f,
             0.5f,0.5f,-0.5f,0.0f,0.0f,1.0f,
             0.5f,0.5f,0.5f,0.0f,0.0f,1.0f,
-        };*/
-        
-        Geometry* myGeom = createGeometry(meshWidth, meshHeight, faults, 0);
+        };
+        */
+        myGeom = createGeometry(meshWidth, meshHeight, faults, 0);
         //printFloatArray(myGeom->vertices, myGeom->numVertices);
         //printIntArray(myGeom->indices, myGeom->numIndices);
         /* // 1x1x1 cube
-        unsigned int indices[] = {
+        unsigned int* indices = new unsigned int[36] {
             0,1,2,
             2,3,1,
             0,1,5,
@@ -274,9 +313,13 @@ auto runGLFW() -> int {
             5,1,7,
             0,2,4,
             2,4,6
-        };*/
-
-        
+        };
+        testGeom = new Geometry();
+        testGeom->vertices = positions;
+        testGeom->numVertices = 48;
+        testGeom->indices = indices;
+        testGeom->numIndices = 36;
+        */
 
         unsigned int vao;
         GLCall(glGenVertexArrays(1, &vao));
@@ -362,7 +405,7 @@ int main(int argc, char** argv)
     meshHeight = std::atoi(argv[2]);
     faults = std::atoi(argv[3]);
     std::cout << "Constructing a terrain with dimensions " << meshWidth << " x " << meshHeight << " with " << faults << " faults" << std::endl;
-
+    omp_set_num_threads(4);
     runGLFW();
     return 0;
 }
