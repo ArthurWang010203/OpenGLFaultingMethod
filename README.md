@@ -9,3 +9,11 @@ This project is a C++ application that generates terrain using the faulting meth
 - **Camera Controls**: Interactive camera with movement controls.
 - **Lighting**: Basic lighting to enhance visual realism.
 - **Export**: Export the generated terrain to a `.obj` file for use in other applications.
+
+## Controls
+
+- WASD & QE to pan
+- Mouse move to look around
+- Scroll to zoom
+- R to regenerate (new) terrain
+- X to export to file "terrain_meshWidth_meshHeight.obj"
