@@ -1,4 +1,4 @@
-# Terrain Generation with Faulting Method
+# RiftTerrain Generation with Faulting Method
 
 This project is a C++ application that generates terrain using the faulting method, renders it in an OpenGL window with interactive camera controls and lighting, and allows users to export the terrain to a `.obj` 3D model file.
 
